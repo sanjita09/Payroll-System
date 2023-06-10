@@ -1,0 +1,51 @@
+{% extends "Management/layout.html" %}
+{% block title %} Progresstable {% endblock title %}
+{% block body %}
+    <table id="code" style="position: relative; margin-right: 30px; padding: 15px;border-spacing:30px;">
+        <tr>
+            <td>ID</td>
+            <td>{{ payhistory.EmpId }}</td>
+        </tr>
+        <tr>
+            <td>PFTax</td>
+            <td>{{ payhistory.PFTax }}</td>
+        </tr>
+        <tr>
+            <td>IncomeTax</td>
+            <td>{{ payhistory.IncomeTax }}</td>
+        </tr>
+        <tr>
+            <td>BasicPay</td>
+            <td>{{ payhistory.BasicPay }}</td>
+        </tr>
+        <tr>
+            <td>HRA</td>
+            <td>{{ payhistory.HRA }}</td>
+        </tr>
+        <tr>
+            <td>Conveyance</td>
+            <td>{{ payhistory.Conveyance }}</td>
+        </tr>
+        <tr>
+            <td>Allowance</td>
+            <td>{{ payhistory.Allowance }}</td>
+        </tr>
+        <tr>
+            <td>Loss of Pay</td>
+            <td>{{ payhistory.LossOfPay }}</td>
+        </tr>
+        <tr>
+            <td>LoanDeduction</td>
+            <td>{{ payhistory.LoanDeduction }}</td>
+        </tr>
+        <tr>
+            <td>FinalSalary</td>
+            <td>{{ payhistory.FinalSalary }}</td>
+        </tr>
+        
+    </table>
+    <br><br>
+    <p>
+        <center><a href="{% url 'Management:download_payslip' %}">Download Payslip</a></center>
+    </p>
+{% endblock %}

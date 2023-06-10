@@ -1,0 +1,81 @@
+{% extends "Management/layout.html" %} {% block title %} Search {% endblock title %} {% block body %} {% if method == "GET" %}
+<h1>Search an Employee</h1>
+{% else %}
+<h1>Results</h1>
+{% endif %}
+<form action="{% url 'Management:searchEMP' %}" method="POST">
+    {% csrf_token %} {{ form }}
+    <input type="submit">
+</form>
+</div>
+<div class="repoContainer">
+    {% if not result and method == "POST" %}
+    <p>No Result Found</p>
+    {% elif method == "GET" %}
+    <p></p>
+    {% else %}
+    <table id="code" style="position: relative; margin-right: 30px; padding: 15px;border-spacing:30px;">
+        {% for r in result %}
+        <tr>
+            <td>ID</td>
+            <td>{{ r.EmpId }}</td>
+        </tr>
+        <tr>
+            <td>Name</td>
+            <td>{{ r.EmpName }}</td>
+        </tr>
+        <tr>
+            <td>Role</td>
+            <td>{{ r.Role }}</td>
+        </tr>
+        <tr>
+            <td>Department</td>
+            <td>{{ r.Department }}</td>
+        </tr>
+        <tr>
+            <td>Username</td>
+            <td>{{ r.Username }}</td>
+        </tr>
+        <tr>
+            <td>Manager Id</td>
+            <td>{{ r.Manager_ID }}</td>
+        </tr>
+        <tr>
+            <td>Phone no</td>
+            <td>{{ r.Phone_No }}</td>
+        </tr>
+        <tr>
+            <td>Email</td>
+            <td>{{ r.Email_ID }}</td>
+        </tr>
+        <tr>
+            <td>IFSC Code</td>
+            <td>{{ r.IFSC_code }}</td>
+        </tr>
+        <tr>
+            <td>Date of Joining</td>
+            <td>{{ r.DOJ }}</td>
+        </tr>
+        <tr>
+            <td>Pan number</td>
+            <td>{{ r.PAN_No }}</td>
+        </tr>
+        <tr>
+            <td>Account number</td>
+            <td>{{ r.Acc_No }}</td>
+        </tr>
+        <tr>
+            <td>Loan taken</td>
+            <td>{{ r.Loan_taken }}</td>
+        </tr>
+        <tr>
+            <td>Leave available</td>
+            <td>{{ r.Max_no_of_leaves }}</td>
+        </tr>
+
+        {% empty %}
+        <td colspan="5" style="text-align: center; color: aqua;">No Result</td>
+        {% endfor %}
+    </table>
+    {% endif %}
+{% endblock body%}

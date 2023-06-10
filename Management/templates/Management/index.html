@@ -1,0 +1,31 @@
+{% extends "Management/layout.html" %}
+
+{% block title %} Home Page {% endblock title %}
+
+{% block body %}
+
+<a href="{% url 'Management:SearchHR' %}" class="repoCard" rel="noopener noreferrer">
+   <div class="repoTitle">Search</div>
+   <p>Search Employee With their ID </p>
+</a>
+<a href="{% url 'Management:Add_employee' %}" class="repoCard" rel="noopener noreferrer">
+   <div class="repoTitle">Add Employee</div>
+   <p>Add new employee </p>
+</a>
+<a href="{% url 'Management:update' %}" class="repoCard" rel="noopener noreferrer">
+   <div class="repoTitle">Monthly update</div>
+   <p>Calculates monthly salary for every employees</p>
+</a>
+<a href="{% url 'Management:Progress_table' %}" class="repoCard" rel="noopener noreferrer">
+   <div class="repoTitle">Progress</div>
+   <p>Update change in salary structure</p>
+</a>
+<a href="{% url 'Management:Modify_employee' %}" class="repoCard" rel="noopener noreferrer">
+   <div class="repoTitle">Modify Employee</div>
+   <p>Modify employee tables </p>
+</a>
+<a href="{% url 'Management:downloadHR' %}" class="repoCard" rel="noopener noreferrer">
+   <div class="repoTitle">Get salary excel </div>
+   <p>Download current month Employees salary details </p>
+</a>
+{% endblock body%}

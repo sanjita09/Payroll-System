@@ -1,0 +1,34 @@
+{% extends "Management/layout.html" %}
+
+{% block title %} Complaints {% endblock title %}
+
+
+
+{% block body %}
+<h1>All Complaints</h1>
+</div>
+<div class="repoContainer" style="overflow-y: hidden;">
+    <table id="code" style="position: relative; margin-right: 30px; padding: 15px;border-spacing:30px;">
+        <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Complaint Type</th>
+            <th>Complaint Subject</th>
+            <th>Complaint Message</th>
+        </tr>
+        {% for Comp in Complaint %}
+        <tr>
+            <td>{{Comp.0}}</td>
+            <td>{{Comp.1}}</td>
+            <td>{{Comp.2}}</td>
+            <td>{{Comp.3}}</td>
+            <td>{{Comp.4}}</td>
+        </tr>
+        {% empty %}
+            <td colspan="5" style="text-align: center; color: aqua;">No Complaint</td>
+        {% endfor %}
+    </table>
+{% endblock body%}
+{% block sec_body %}
+    <a href="{% url 'Management:Add_Complaint' %}" style="position: relative;">Add a New Complaint</a>
+{% endblock sec_body %}

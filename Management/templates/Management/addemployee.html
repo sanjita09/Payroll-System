@@ -1,0 +1,14 @@
+{% extends "Management/layout.html" %}
+{% load crispy_forms_tags %}
+
+{% block title %} Progresstable {% endblock title %}
+
+{% block body %}
+    <div>
+    <form action="{% url 'Management:Add_employee' %}" method="POST">
+        {% csrf_token %}
+        {{ form.as_p}}
+        <input type="submit">
+    </form>
+    </div>
+{% endblock %}

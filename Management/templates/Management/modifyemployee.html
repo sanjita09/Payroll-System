@@ -1,0 +1,12 @@
+{% extends "Management/layout.html" %}
+
+
+
+{% block body %}
+    <h2>Modify employee table</h2>
+    <form action="{% url 'Management:Modify_employee' %}" method="POST">
+        {% csrf_token %}
+        {{ form }}
+        <input type="submit">
+    </form>
+{% endblock %}

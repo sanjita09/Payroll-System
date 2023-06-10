@@ -1,0 +1,22 @@
+{% extends "Management/layout.html" %}
+
+{% block title %} Home Page {% endblock title %}
+
+{% block body %}
+<a href="{% url 'Management:searchEMP' %}" class="repoCard" rel="noopener noreferrer">
+   <div class="repoTitle">Search</div>
+   <p>Search employee with their ID</p>
+</a>
+<a href="{% url 'Management:leave' %}" class="repoCard" rel="noopener noreferrer">
+   <div class="repoTitle">Apply leave</div>
+   <p>Employees can apply leave</p>
+</a>
+<a href="{% url 'Management:loan' %}" class="repoCard" rel="noopener noreferrer">
+   <div class="repoTitle">Apply Loan</div>
+   <p>Employees can apply for loan</p>
+</a>
+<a href="{% url 'Management:payslip' %}" class="repoCard" rel="noopener noreferrer">
+   <div class="repoTitle">Payslip</div>
+   <p>Employees can view their Payslip</p>
+</a>
+{% endblock body%}

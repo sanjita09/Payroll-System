@@ -1,0 +1,8 @@
+{% extends "Management/layout.html" %} {% block title %} Progresstable {% endblock title %} {% block body %}
+<h2>Get payslip</h2>
+<form action="{% url 'Management:payslip' %}" method="POST">
+    {% csrf_token %} {{ form }}
+    <input type="submit">
+</form>
+
+{% endblock %}

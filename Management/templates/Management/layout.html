@@ -1,0 +1,41 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <link rel="shortcut icon" type="image/ico" href="{% static 'Management/favicon.ico' %}"/>
+      <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/all.css">
+      <title>
+        {% block title %}
+        {{ page_title|default:"Payroll Management System" }}
+        {% endblock title %}
+    </title>
+      <link href="{% static 'Management/styles.css' %}" rel="stylesheet">
+   </head>
+   <body>
+      <div id="root">
+         <div class="container">
+            <div class="sidebar user">
+               <div>
+                     <div class="avatar shine">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRf06C8Bz9F-1zxEV8d0reEEpeDHVwGT0CY6Img5fqTgw&usqp=CAU&ec=48600113" class="profile" alt="Company Picture">
+                     </div>
+                  </a>
+                  <h1>Payroll Management System</h1>
+               </div>
+            </div>
+            <div class="main">
+               <div class="repoContainer">
+                  {% block body %}
+                  {% endblock body %}
+               </div>
+               <div class="repoContainer">
+                  {% block sec_body %}
+                  {% endblock sec_body %}
+               </div>
+            </div>
+         </div>
+      </div>
+   </body>
+</html>

@@ -1,0 +1,17 @@
+{% extends "Management/layout.html" %}
+
+{% block title %} View Favourite {% endblock title %}
+
+{% block body %}
+<h1>Favorites</h1>
+<div class="skills">
+    <ul>
+        {% for fav in favorites %}
+            <span>{{ fav }}</span>
+            {% empty %}
+            <p>No Such Favorites</p>
+        {% endfor %}
+    </ul>
+</div>
+    <a href="{% url 'Management:Add_Favourite' %}">Add a New Favourite</a>
+{% endblock body %}

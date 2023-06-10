@@ -1,0 +1,62 @@
+{% extends "Management/layout.html" %}
+
+{% block title %} Search {% endblock title %}
+
+
+
+{% block body %}
+{% if method == "GET" %}
+    <h1>Search an Employee</h1>
+{% else %}
+    <h1>Results</h1>
+{% endif %}
+<form action="{% url 'Management:Search' %}" method="POST">
+    {% csrf_token %}
+    {{ form }}
+    <input type="submit">
+</form>
+</div>
+<div class="repoContainer">
+    {% if not result and method == "POST" %}
+        <p>No Result Found</p>
+    {% elif method == "GET" %}
+        <p></p>
+    {% else %}
+        <table id="code" style="position: relative; margin-right: 30px; padding: 15px;border-spacing:30px;">
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Position</th>
+            </tr>
+            {% for r in result %}
+                <tr>
+                    <td>{{ r.EmpId }}</td>
+                    <td>{{ r.EmpName }}</td>
+                    <td>{{ r.Role }}</td>
+                    <td>{{ r.Department }}</td>
+                    <td>{{ r.Username }}</td>
+                    <td>{{ r.Password }}</td>
+                    <td>{{ r.Manager_ID }}</td>
+                    <td>{{ r.Phone_No }}</td>
+                    <td>{{ r.Email_ID }}</td>
+                    <td>{{ r.IFSC_code }}</td>
+                    <td>{{ r.Door_No }}</td>
+                    <td>{{ r.Street }}</td>
+                    <td>{{ r.City }}</td>
+                    <td>{{ r.State }}</td>
+                    <td>{{ r.Country }}</td>
+                    <td>{{ r.Pin_code}}</td>
+                    <td>{{ r.DOB }}</td>
+                    <td>{{ r.DOJ }}</td>
+                    <td>{{ r.PAN_No }}</td>
+                    <td>{{ r.Acc_No }}</td>
+                    <td>{{ r.Loan_taken }}</td>
+                    <td>{{ r.Max_no_of_leaves }}</td>
+                </tr>
+            {% empty %}
+                <td colspan="5" style="text-align: center; color: aqua;">No Result</td>
+            {% endfor %}
+        </table>
+    {% endif %}
+{% endblock body%}
